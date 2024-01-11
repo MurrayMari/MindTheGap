@@ -1,6 +1,5 @@
 import requests
 # from config import apikey, apiname
-apikey = 'bfb19095497146ba924c5b08d8026210'
 
 # Transport for London's OpenAPI.
 # https://github.com/ZackaryH8/tube-naptan?tab=readme-ov-file ->>> naptan tube station ids
