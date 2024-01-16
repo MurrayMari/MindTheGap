@@ -1,3 +1,7 @@
+# current problems - how to often to refresh? 
+
+# code to write - if internet inop light up all 
+
 import requests
 # from config import apikey, apiname
 
@@ -11,20 +15,39 @@ import requests
 
 # "naptanID":"940GZZLUPCC","commonName":"Piccadilly Circus Underground Station"
 # {"naptanID":"940GZZLUBSC","commonName":"Barons Court Underground Station"}
+class myStop:
 
+  def __init__(self):
+    pass
 # Calling the api
-lineName = 'Piccadilly'
-naptanID = '940GZZLUBSC'
+
 # lineName = input('Enter Line name: ')
 # naptanID = input('Enter station naptanID: ')
 
-url = "https://api.tfl.gov.uk/Line/{}/Arrivals/{}?direction=inbound".format(lineName, naptanID)
+  def get_line(lineName, naptanID):
+    
+    # returns 
+    url = "https://api.tfl.gov.uk/Line/{}/Arrivals/{}?direction=inbound".format(lineName, naptanID)
+    newresponse = requests.get(url)
+    next = newresponse.json()
+    # for i in next:
+    #   # print((int(i['timeToStation']))/60)
+    #   print('Time to next train is', int(i['timeToStation'])/60,, 'The train is currently at', i['currentLocation'], 'It is due at', i['expectedArrival'])
+    return next
+  
+  def next_train_times()
 
-# nexturl = 'https://api.tfl.gov.uk/Line/Piccadilly/Arrivals/940GZZLUPCC[?direction][&destinationStationId]{}'.format(apikey)
-newresponse = requests.get(url)
-next = newresponse.json()
-for i in next:
-     # print((int(i['timeToStation']))/60)
-     print('Time to next train is', int(i['timeToStation'])/60, 'The train is currently at', i['currentLocation'], 'It is due at', i['expectedArrival'])
+
+# lineName = 'Piccadilly'
+# naptanID = '940GZZLUBSC'
+
+s = myStop()
+s.get_line('Piccadilly' '940GZZLUBSC')
 
 
+
+# url = "https://api.tfl.gov.uk/Line/{}/Arrivals/{}?direction=inbound".format(lineName, naptanID)
+# newresponse = requests.get(url)
+# next = newresponse.json()
+
+# print(type(next[1]))
